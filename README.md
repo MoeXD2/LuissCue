@@ -68,7 +68,15 @@ Visit http://127.0.0.1:5000/ in your web browser to view the application.
 This project is licensed under the MIT License - see the LICENSE.md file for details.
 
 ### Acknowledgments
+
 OpenAI for providing the Whisper ASR system and AI models for summarizing content
+
 Flask and Tailwind CSS for enabling the creation of beautiful and responsive web applications
+
 AOS (Animate on Scroll) Library for adding smooth animations to the web app
+
 Parallax.js and Headroom.js for enhancing the user experience with scrolling effects and dynamic navigation
+
+ChromaDB for the open source vector database
+
+Langchain for streamlining the development of diverse applications, such as chatbots, Generative Question-Answering (GQA), and summarization
