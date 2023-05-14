@@ -8,10 +8,13 @@ LuissCue is a Flask web app designed to help students study more effectively. It
 ![](https://i.ibb.co/TPCsKpd/LuissCue.png)
 
 ### Features
-Notes: Share and access notes from your classmates to enhance your learning experience.
-Lessons: Explore lessons with AI-generated transcriptions and summaries for easy review and understanding.
-OpenAI Whisper: Automatic Speech Recognition (ASR) system for transcribing video content.
-OpenAI Models: Advanced AI models for summarizing transcribed text, providing concise and relevant summaries of video content.
+**Notes**: Share and access notes from your classmates to enhance your learning experience.
+
+**Lessons**: Explore lessons with AI-generated transcriptions and summaries for easy review and understanding.
+
+**OpenAI Whisper**: Automatic Speech Recognition (ASR) system for transcribing video content.
+
+**OpenAI Models**: Advanced AI models for summarizing transcribed text, providing concise and relevant summaries of video content.
 
 ### Getting Started
 These instructions will help you set up the project on your local machine for development and testing purposes.
