@@ -5,7 +5,7 @@ Transcribe and talk to your lessons and notes.
 
 LuissCue is a Flask web app designed to help students study more effectively. It provides a platform for uploading and talking to notes, and transcribing and talking to lessons. The web app leverages OpenAI technologies to transcribe and summarize video / audio content, making it a powerful study aid for students.
 
-[![](https://i.ibb.co/M9tYT5S/Luiss-Demo-1.gif)](https://i.ibb.co/M9tYT5S/Luiss-Demo-1.gif)
+![](https://i.ibb.co/M9tYT5S/Luiss-Demo-1.gif)
 
 ### Features
 **Notes**: Share and access notes from your classmates to enhance your learning experience.
