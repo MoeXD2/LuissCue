@@ -7,6 +7,10 @@ LuissCue is a Flask web app designed to help students study more effectively. It
 
 ![](https://i.ibb.co/TPCsKpd/LuissCue.png)
 
+![](https://i.ibb.co/3y9rQtH/lessons.png)
+
+![](https://i.ibb.co/C8cZ7wV/notes.png)
+
 ### Features
 **Notes**: Share and access notes from your classmates to enhance your learning experience.
 
