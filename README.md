@@ -66,7 +66,7 @@ python app.py
 Visit http://127.0.0.1:5000/ in your web browser to view the application.
 
 ### License
-This project is licensed under the MIT License - see the LICENSE.md file for details.
+This project is licensed under the Apache License 2.0 - see the LICENSE.md file for details.
 
 ### Acknowledgments
 
