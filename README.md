@@ -30,7 +30,11 @@ Flask
 Tailwind CSS
 Pytorch
 Chocolatey
-ffmpeg
+```
+
+After installing Chocolatey, run the following command to install ffmpeg
+```
+choco install ffmpeg
 ```
 
 ### Installation
