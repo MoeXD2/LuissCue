@@ -41,7 +41,7 @@ choco install ffmpeg
 
 Clone the repository
 ```
-git clone https://github.com/MoeXD2/LuissCue.git
+git clone https://github.com/MoeXD2/LuissCue.git 
 ```
 Change the current directory to the project directory
 ```
