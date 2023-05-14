@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<header class="bg-transparent p-4 fixed w-full z-10">
+   <nav class="flex justify-between items-center">
+      <a href="/" class="text-2xl font-bold text-white">LuissCue</a>
+      <ul class="flex space-x-4">
+         <li><a href="/" class="text-white">Home</a></li>
+         <li><a href="/lessons" class="text-white">Lessons</a></li>
+         <li><a href="/notes" class="text-white">Notes</a></li>
+      </ul>
+   </nav>
+</header>
+<br><br>
+<main class="container mx-auto py-16 px-4 flex-grow fade-in">
+   <div class="flex flex-col md:flex-row items-center space-y-8 md:space-y-0 md:space-x-8">
+      <div class="w-full md:w-1/2">
+         <h1 class="text-4xl font-bold text-white mb-4">Welcome to LuissCue</h1>
+         <p class="text-xl text-white mb-4">A platform to help classmates study better, share notes, lessons, and engage in chatrooms for productive discussions.</p>
+         <img src="https://www.1law.com/wp-content/uploads/2016/08/docubot.gif" alt="Studying">
+      </div>
+      <div class="w-full md:w-1/2">
+         <img src="https://automatonai.com/wp-content/uploads/2021/05/Asset-1@4x-1-1.png" alt="Homepage" class="w-full h-auto md:h-auto object-cover object-center">
+      </div>
+   </div>
+</main>
+<br><br><br>
+<div class="text-center mt-8" data-aos="fade-up" data-aos-delay="300">
+   <span class="text-white text-4xl">&#8595;</span>
+</div>
+<br><br><br><br><br><br>
+<section class="parallax-container relative pointer-events-none" data-parallax="scroll">
+   <div class="container mx-auto px-4 py-16">
+      <div class="text-center">
+         <h2 class="text-3xl text-white font-bold mb-6" data-aos="zoom-in">Powered by OpenAI Technologies</h2>
+         <p class="text-xl text-white mb-8" data-aos="fade-up" data-aos-delay="100">LuissCue leverages cutting-edge AI models to transcribe and summarize video content for students.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8" data-aos="fade-up" data-aos-delay="200">
+         <div class="bg-gradient-to-br from-gray-700 via-gray-800 to-purple-900 shadow-lg rounded-3xl p-6">
+            <img src="https://dubverse.ai/wp-content/uploads/2022/09/openai-blog-featured-image.png" alt="OpenAI Whisper" class="w-full h-48 object-cover object-center mb-4">
+            <h3 class="text-2xl text-white font-bold mb-2">OpenAI Whisper</h3>
+            <p class="text-xl text-white mb-8">Whisper is an Automatic Speech Recognition (ASR) system developed by OpenAI. It transcribes video content, converting spoken language into written text.</p>
+         </div>
+         <div class="bg-gradient-to-br from-green-700 via-brown-800 to-blue-900 shadow-lg rounded-3xl p-6">
+            <img src="https://media.licdn.com/dms/image/D5612AQFoxSZYLjV_EA/article-cover_image-shrink_720_1280/0/1677588476245?e=2147483647&v=beta&t=5WT3HMuBEmRSB9aJY-gUJkivFbH7DvkIH4LWk9T7u1Y" alt="OpenAI Models" class="w-full h-48 object-cover object-center mb-4">
+            <h3 class="text-2xl text-white font-bold mb-2">OpenAI Models</h3>
+            <p class="text-xl text-white mb-8">Advanced AI models are used to summarize the transcribed text, providing concise and relevant summaries of video content to facilitate better learning.</p>
+         </div>
+       </div>
+      <div class="text-center mt-16" data-aos="fade-up" data-aos-delay="300">
+         <h3 class="text-2xl text-white font-bold mb-4">Want to try it out?</h3>
+         <a href="/lessons" class="bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white font-bold py-2 px-4 rounded-xl inline-flex items-center pointer-events-auto">
+            <span class="text">Click here</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 ml-2" fill="currentColor" viewBox="0 0 24 24" stroke="currentColor">
+               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+         </a>                                           
+      </div>
+   </div>
+</section>
+<br><br><br>
+<div class="text-center mt-8" data-aos="fade-up" data-aos-delay="300">
+   <span class="text-white text-4xl">&#8595;</span>
+</div>
+<br><br><br><br><br><br>
+<section class="parallax-container relative pointer-events-none" data-parallax="scroll">
+   <div class="container mx-auto px-4 py-16">
+      <div class="text-center">
+         <h2 class="text-3xl text-white font-bold mb-6" data-aos="zoom-in">Enhance Your Learning Experience</h2>
+         <p class="text-xl text-white mb-8" data-aos="fade-up" data-aos-delay="100">LuissCue offers note-sharing and advanced AI capabilities to make studying even more effective.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8" data-aos="fade-up" data-aos-delay="200">
+         <div class="bg-gradient-to-br from-gray-700 via-gray-800 to-purple-900 shadow-lg rounded-3xl p-6">
+            <img src="https://clickup.com/blog/wp-content/uploads/2020/01/note-taking.png" alt="Notes Sharing" class="w-full h-48 object-cover object-center mb-4 rounded">
+            <h3 class="text-2xl text-white font-bold mb-2">Collaborative Note-Sharing</h3>
+            <p class="text-xl text-white mb-8">Students can upload, share, and discuss their notes and classes. Collaborate with your peers, ask questions, and provide feedback on each other's notes to enhance your learning experience.</p>
+         </div>
+         <div class="bg-gradient-to-br from-green-700 via-brown-800 to-blue-900 shadow-lg rounded-3xl p-6">
+            <img src="https://codingthesmartway.com/_astro/title.21ab4540.png" alt="AI-Powered Queries" class="w-full h-48 object-cover object-center mb-4 rounded">
+            <h3 class="text-2xl text-white font-bold mb-2">AI-Powered Note Exploration</h3>
+            <p class="text-xl text-white mb-8">Integrating Langchain and OpenAI technologies allows you to query notes and professor slides effectively. Extract relevant information and get answers to your questions with the help of AI-driven insights.</p>
+         </div>
+      </div>
+      <div class="text-center mt-16" data-aos="fade-up" data-aos-delay="300">
+         <h3 class="text-2xl text-white font-bold mb-4">Want to try it out?</h3>
+         <a href="/notes" class="bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white font-bold py-2 px-4 rounded-xl inline-flex items-center pointer-events-auto">
+            <span class="text">Click here</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 ml-2" fill="currentColor" viewBox="0 0 24 24" stroke="currentColor">
+               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+         </a>                                           
+      </div>
+   </div>
+</section>
+{% endblock %}

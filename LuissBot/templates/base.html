@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>LuissCue</title>
+   <link rel="icon" href="https://www.1law.com/wp-content/uploads/2016/08/docubot.gif" type="image/x-icon">
+   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@latest/dist/tailwind.min.css" rel="stylesheet">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" referrerpolicy="no-referrer"/>
+   <link rel="stylesheet" href="/static/css/headroom.css">
+   <link rel="stylesheet" href="/static/css/custom.css">
+   <link rel="stylesheet" href="/static/css/lessons.css">
+   <link rel="stylesheet" href="/static/css/notes.css">
+</head>
+<body class="bg-gray-100 flex flex-col min-h-screen" style="background-image: url('https://datacom.com/content/dam/images/admin/insights/cloud/cloud-and-insights-report/2022/CloudInfrastructureReport_HeroCoverImage_1920x1080px.gif'); background-size: cover;">
+   <div class="flex-grow">
+      {% block content %}
+      {% endblock %}
+   </div>
+   <footer class="bg-transparent p-4 text-center text-white mt-8">
+      <p>&copy; 2023 LuissCue. All rights reserved.</p>
+   </footer>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" referrerpolicy="no-referrer"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.12.0/headroom.min.js" referrerpolicy="no-referrer"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js" referrerpolicy="no-referrer"></script>
+   <script src="{{ url_for('static', filename='js/lessons.js') }}"></script>
+   <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+   <script src="{{ url_for('static', filename='js/notes.js') }}"></script>
+</body>
+</html>

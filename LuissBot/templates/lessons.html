@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<header class="bg-transparent p-4 fixed w-full z-10">
+   <nav class="flex justify-between items-center">
+      <a href="/" class="text-2xl font-bold text-white">LuissCue</a>
+      <ul class="flex space-x-4">
+         <li><a href="/" class="text-white">Home</a></li>
+         <li><a href="/lessons" class="text-white">Lessons</a></li>
+         <li><a href="/notes" class="text-white">Notes</a></li>
+      </ul>
+   </nav>
+</header>
+<br><br>
+<div class="parallax-container">
+   <main class="container mx-auto py-16 px-4 flex-grow fade-in">
+      <div class="flex flex-col md:flex-row items-center space-y-8 md:space-y-0 md:space-x-8">
+         <div class="w-full md:w-auto">
+            <h1 class="text-4xl font-bold text-white mb-4">Whisper AI Transcription</h1>
+            <p class="text-xl text-white mb-4">Powerful and accurate transcription for your audio and video files. Upload your recorded lessons and download their transcription in PDF, DocX or TXT format.</p>
+         </div>
+      </div>
+   </main>
+</div>
+<div class="container mx-auto px-4 py-8">
+   <h1 class="text-4xl font-bold text-center text-white mb-8" data-aos="fade-left">Transcribe Your Lessons</h1>
+   <div class="bg-white rounded-3xl shadow-md p-6" data-aos="fade-right" data-aos-delay="200">      
+      <h3 class="text-2xl font-bold mb-4 text-gray-800">Upload Audio/Video</h3>
+      <p class="mb-4 text-gray-600">Upload an audio or video file, and our system will transcribe it using the powerful OpenAI Whisper model. See the transcription below.</p>
+      <div id="toast" class="toast">Please upload a file first.</div>
+      <form id="transcription-form" action="/transcribe" method="POST" enctype="multipart/form-data">
+         <div class="mt-4 p-4 bg-yellow-100 text-yellow-800 border border-yellow-300 rounded-2xl">
+            <p class="text-xs font-bold">Supported Formats:</p>
+            <p class="text-xs">Audio: mp3, mp4, mpeg, mpga, m4a, wav, webm</p>
+            <p class="text-xs">Video: mp4, webm, mov</p>
+         </div>
+         <br>
+         <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2">Select File</label>
+            <div class="relative">
+               <input id="file-input" type="file" name="file" class="hidden" accept="audio/*, video/*">
+               <button type="button" class="bg-gray-200 text-gray-700 font-semibold py-2 px-4 border border-gray-300 rounded-2xl shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500" onclick="document.getElementById('file-input').click()">Choose File</button>
+               <span id="file-name" class="ml-2 text-sm"></span>
+            </div>
+         </div>
+         <br>
+         <hr class="border-dashed border-gray-300">
+         <br>
+         <button type="submit" class="bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white font-bold py-2 px-4 rounded-2xl focus:outline-none focus:shadow-outline">
+            <span id="transcribe-text">Transcribe</span>
+            <span id="transcribe-spinner" class="spinner" style="display: none;"></span>
+         </button>
+         <span id="estimated-time" class="ml-2 text-sm"></span>     
+      </form>
+   </div>
+   {% if transcription %}
+   <div id="transcription-result" class="bg-white rounded-3xl shadow-md p-6 mt-8" data-aos="fade-left" data-aos-delay="400">
+      <h2 class="text-2xl font-bold mb-4">Transcription</h2>
+      <div class="bg-gray-100 p-4 rounded-3xl">
+         {% if transcription|length > 400 %}
+         <p class="text-gray-700 whitespace-pre-wrap">Transcription is too long! Download it instead.</p>
+         {% endif %}
+         {% if transcription|length < 400 %}
+         <p class="text-gray-700 whitespace-pre-wrap">{{ transcription }}</p>
+         {% endif %}
+      </div>
+      <div class="mt-8">
+         <h3 class="text-xl font-bold mb-4" data-aos="fade-right" data-aos-delay="100">Download Transcription</h3>
+         <div class="flex space-x-4" data-aos="fade-left" data-aos-delay="100">
+            <a href="/static/transcription.docx" download="transcription.docx" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-3xl focus:outline-none focus:shadow-outline">Download as DocX</a>
+            <a href="/static/transcription.pdf" download="transcription.pdf" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-3xl focus:outline-none focus:shadow-outline">Download as PDF</a>
+            <a href="/static/transcription.txt" download="transcription.txt" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-3xl focus:outline-none focus:shadow-outline">Download as TXT</a>
+         </div>
+      </div>
+   </div>
+   <div class="mt-10 bg-white rounded-3xl p-8 shadow-lg" data-aos="fade-up" data-aos-delay="100">
+      <h2 class="text-2xl font-bold mb-5 text-gray-800">Ask Questions About Your Transcription</h2>
+      <label for="query" class="block mb-2">Your Question:</label>
+      <input type="text" id="query" class="border rounded-lg p-1 mb-4 w-full" placeholder="Type your question...">
+      <button id="ask-query" class="bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white font-bold py-2 px-4 rounded-2xl">Ask</button>
+      <div id="form-answer" class="mt-5 text-gray-800"></div>
+   </div>  
+  {% endif %}
+</div>   
+{% endblock %}

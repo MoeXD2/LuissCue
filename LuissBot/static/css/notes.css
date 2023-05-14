@@ -1,0 +1,19 @@
+.spinner-notes {
+   border: 4px solid rgba(0, 0, 0, 0.1);
+   border-left-color: transparent;
+   border-image: linear-gradient(to right, #3498db, #4b0082);
+   border-image-slice: 1;
+   border-radius: 100%;
+   width: 24px;
+   height: 24px;
+   animation: twirl 1s linear infinite;
+}
+
+@keyframes twirl {
+   0% {
+     transform: rotate(0deg);
+   }
+   100% {
+     transform: rotate(360deg);
+   }
+}

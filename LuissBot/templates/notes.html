@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+
+{% block content %}
+<header class="bg-transparent p-4 fixed w-full z-10">
+   <nav class="flex justify-between items-center">
+      <a href="/" class="text-2xl font-bold text-white">LuissCue</a>
+      <ul class="flex space-x-4">
+         <li><a href="/" class="text-white">Home</a></li>
+         <li><a href="/lessons" class="text-white">Lessons</a></li>
+         <li><a href="/notes" class="text-white">Notes</a></li>
+      </ul>
+   </nav>
+</header>
+<br><br>
+<div class="parallax-container">
+   <main class="container mx-auto py-16 px-4 flex-grow fade-in">
+      <div class="flex flex-col md:flex-row items-center space-y-8 md:space-y-0 md:space-x-8">
+         <div class="w-full md:w-auto">
+            <h1 class="text-4xl font-bold text-white mb-4" data-aos="fade-left">Upload & Talk To Your Notes</h1>
+            <p class="text-xl text-white mb-4" data-aos="fade-right" data-aos-delay="100">Using Langchain and Vector Databases, you can allow Large Language Models to access your notes so you can talk to them.</p>
+         </div>
+      </div>
+   </main>
+</div>
+<div class="container mx-auto px-4 py-5">
+   <div class="text-center text-white mb-10" data-aos="fade-in" data-aos-delay="600">
+      <h1 class="text-4xl font-bold">Notes Section</h1>
+      <p class="text-xl mt-2">Upload, view, and ask questions about your notes</p>
+   </div>
+   <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="bg-white rounded-3xl p-8" data-aos="fade-right" data-aos-delay="100">
+         <h2 class="text-2xl font-bold mb-5 text-gray-800">Upload Notes</h2>
+         <form id="upload-form" action="{{ url_for('upload_notes') }}" method="POST" enctype="multipart/form-data">
+            <div class="mb-4">
+               <label class="block text-gray-700 text-sm font-bold mb-2">Select File</label>
+               <div class="relative">
+                  <input id="file-note" type="file" name="file" class="hidden" accept=".docx, .pdf">
+                  <button type="button" class="bg-gray-200 text-gray-700 font-semibold py-2 px-4 border border-gray-300 rounded-2xl shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500" onclick="document.getElementById('file-note').click()">Choose File</button>
+                  <span id="file-name" class="ml-2 text-sm"></span>
+                  <br><br><p class="text-red-600 mb-4">Allowed extensions: docx, pdf</p>
+               </div>
+            </div>
+            <br>
+            <hr class="border-dashed border-gray-300">
+            <br>
+            <button type="submit" class="bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white font-bold py-2 px-4 rounded-2xl">Upload</button>
+         </form>
+      </div>
+      <div class="bg-white rounded-3xl p-8" data-aos="fade-left" data-aos-delay="100">
+         <h2 class="text-2xl font-bold mb-5 text-gray-800">Your Notes</h2>
+         {% if notes|length == 0 %}
+            <p class="text-gray-400">No Notes Found.</p>
+            <img src="https://i.ibb.co/KLrGP9Z/empty.gif" alt="" width="128" height="128">
+         {% endif %}
+         {% if notes|length > 0 %}
+            <div class="overflow-y-auto max-h-80">
+               <ul class="space-y-2">
+                  {% for note in notes %}
+                  <li class="bg-gray-100 p-3 rounded-2xl">
+                     <div class="flex items-center justify-between">
+                        <div class="flex items-center">
+                           <a href="{{ note.url }}" target="_blank" class="text-blue-600 hover:text-blue-800">{{ note.name }}</a>
+                           <span class="text-gray-600 ml-2">({{ note.extension }})</span>
+                        </div>
+                        <div>
+                           <a href="{{ url_for('delete_note', note_id=note.id) }}" class="text-red-600 hover:text-red-800">Delete</a>
+                        </div>
+                     </div>
+                  </li>
+                  {% endfor %}
+               </ul>
+            </div>
+         {% endif%}
+      </div>
+   </div>
+   <div class="mt-10 bg-white rounded-3xl p-8 shadow-lg" data-aos="fade-up" data-aos-delay="100">
+      <h2 class="text-2xl font-bold mb-5 text-gray-800">Ask Questions About Your Notes</h2>
+      <label for="note-selection" class="block rounded-lg mb-2">Select a Note:</label>
+      <select id="note-selection" class="border rounded-lg p-1 mb-4 w-full">
+         <option value="">--Select a Note--</option>
+         {% for note in notes %}
+         <option value="{{ note.id }}">{{ note.name }}</option>
+         {% endfor %}
+      </select>
+      <label for="question" class="block mb-2">Your Question:</label>
+      <input type="text" id="question" class="border rounded-lg p-1 mb-4 w-full" placeholder="Type your question...">
+      <button id="ask-question" class="bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white font-bold py-2 px-4 rounded-2xl">Ask</button>
+      <div id="answer" class="mt-5 text-gray-800"></div>
+   </div>
+</div>
+{% endblock %}
