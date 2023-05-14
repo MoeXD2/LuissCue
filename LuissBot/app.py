@@ -96,7 +96,7 @@ def delete_note(note_id):
    
    return redirect(url_for('notes'))
 
-# -------------------------------------------------------------------------------- #
+# ---------------------------------- Transcribe Section--------------------------------------- #
 
 
 @app.route('/transcribe', methods = ['POST'])
