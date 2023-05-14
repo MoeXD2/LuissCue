@@ -28,6 +28,9 @@ These instructions will help you set up the project on your local machine for de
 Python 3.8 or higher
 Flask
 Tailwind CSS
+Pytorch
+Chocolatey
+ffmpeg
 ```
 
 ### Installation
