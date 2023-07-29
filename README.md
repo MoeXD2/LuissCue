@@ -64,7 +64,3 @@ Start the Flask development server
 python app.py
 ```
 Visit http://127.0.0.1:5000/ in your web browser to view the application.
-
-ChromaDB for the open source vector database
-
-Langchain for streamlining the development of diverse applications, such as chatbots, Generative Question-Answering (GQA), and summarization
